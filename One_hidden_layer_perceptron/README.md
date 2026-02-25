@@ -51,7 +51,7 @@ The model is trained for 20 epochs with a learning rate of 0.1 (both values were
 Forward propagation is performed by multiplying the input signals by their corresponding weights, adding a bias to each hidden neuron, and applying the sigmoid activation function.
 
 $$
-a_{1} = \sigma ( a_{0} * w_{0} + b_{0} )
+a_{1} = \sigma \left( a_{0} * w_{0} + b_{0} \right)
 $$
 
 Where:
@@ -60,7 +60,8 @@ Where:
 2.  $$a_{0}$$ — the previous layer
 3.  $$w_{0}$$ — the weights connecting $$a_{0}$$→ $$a_{1}$$
 4.  $$b_{0}$$ — the bias for $$a_{1}$$
-5.  **Backpropagation**
+
+**Backpropagation**
 
 Backpropagation is performed according to the chain rule (i.e., the derivative of the loss with respect to a weight is equal to the product of the derivatives along the path leading to that weight). Let’s imagine the perceptron as a tree consisting of connections.
 
@@ -83,14 +84,14 @@ Where:
 3.  $$h i d o u t$$ — the output of the hidden layer (the weighted sum before activation)
 4.  $$w_{2}$$ — the second weights (hidden layer → prediction)
 
-Before this analogy, we do the same for all weights and biases**.**
+Before this analogy, we do the same for all weights and biases\*\*.\*\*
 
 **…**
 
-After performing backpropagation, we calculate the new weights and biases using this formula where $$w \slash b$$ = weights or bias:
+After performing backpropagation, we calculate the new weights and biases using this formula where $$w / b$$ = weights or bias:
 
 $$
-w \slash b = w \slash b - \  l e a r n i n g \  r a t e * \frac{\partial L}{\partial w \slash b}
+w / b = w / b - \  l e a r n i n g \  r a t e * \frac{\partial L}{\partial w / b}
 $$
 
 **Model testing**
@@ -98,7 +99,7 @@ $$
 The testing dataset consists of 10,000 images and their corresponding labels. Testing uses only forward propagation. During training and testing, the average training / testing loss per epoch is calculated using the following formula:
 
 $$
-t r a i n \slash t e s t \  \  e p o c h \  l o s e \  = \  \frac{\sum_{i = 1}^{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t} {M S E}}{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t}
+t r a i n / t e s t \  \  e p o c h \  l o s e \  = \  \frac{\sum_{i = 1}^{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t} {M S E}}{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t}
 $$
 
 These errors were stored in lists of training/testing errors, which were later used to create the train/test loss graph.
