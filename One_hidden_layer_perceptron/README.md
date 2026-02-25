@@ -6,7 +6,7 @@
 
 This perceptron was created without using PyTorch, TensorFlow, or Scikit-learn in order to gain a better understanding of how a perceptron works. The perceptron is designed for a classification task, specifically predicting digits from 0 to 9. The MNIST dataset is used, which contains digits from 0 to 9 represented as 28×28 pixel black-and-white images. You can explore the dataset in more detail on these websites:
 
-<http://yann.lecun.com> or <https://www.kaggle.com/datasets/hojjatk/mnist-dataset/data>.
+http://yann.lecun.com or https://www.kaggle.com/datasets/hojjatk/mnist-dataset/data.
 
 **Perceptron architecture**
 
@@ -104,3 +104,11 @@ $$
 These errors were stored in lists of training/testing errors, which were later used to create the train/test loss graph.
 
 ![](media/17615b691e10abbb25f31509ec51fbd6.png)
+
+**Addition to the documentation:**
+
+1.  The sigmoid activation function is also used in the hidden layer because ReLU increases the error. Below is the train–test loss graph with the same hyperparameter values but using the ReLU activation function:
+
+    ![](media/05c62195d67cc76755fb71fe2f4db496.png)
+
+It may be related to the small model size, computing the epoch loss using MSE, or the small number of training epochs.
