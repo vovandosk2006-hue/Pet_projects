@@ -6,7 +6,7 @@
 
 This perceptron was created without using PyTorch, TensorFlow, or Scikit-learn in order to gain a better understanding of how a perceptron works. The perceptron is designed for a classification task, specifically predicting digits from 0 to 9. The MNIST dataset is used, which contains digits from 0 to 9 represented as 28×28 pixel black-and-white images. You can explore the dataset in more detail on these websites:
 
-http://yann.lecun.com or https://www.kaggle.com/datasets/hojjatk/mnist-dataset/data.
+<http://yann.lecun.com> or <https://www.kaggle.com/datasets/hojjatk/mnist-dataset/data>.
 
 **Perceptron architecture**
 
@@ -46,12 +46,12 @@ The data is initialized as follows:
 
 The model is trained for 20 epochs with a learning rate of 0.1 (both values were chosen randomly and can be modified when tuning the model). The training dataset consists of 60,000 images and their corresponding labels.
 
-**Forward propagation**
+1.  **Forward propagation**
 
 Forward propagation is performed by multiplying the input signals by their corresponding weights, adding a bias to each hidden neuron, and applying the sigmoid activation function.
 
 $$
-a_{1} = \sigma \left( a_{0} * w_{0} + b_{0} \right)
+a_{1} = \sigma ( a_{0} * w_{0} + b_{0} )
 $$
 
 Where:
@@ -60,8 +60,7 @@ Where:
 2.  $$a_{0}$$ — the previous layer
 3.  $$w_{0}$$ — the weights connecting $$a_{0}$$→ $$a_{1}$$
 4.  $$b_{0}$$ — the bias for $$a_{1}$$
-
-**Backpropagation**
+5.  **Backpropagation**
 
 Backpropagation is performed according to the chain rule (i.e., the derivative of the loss with respect to a weight is equal to the product of the derivatives along the path leading to that weight). Let’s imagine the perceptron as a tree consisting of connections.
 
@@ -84,14 +83,14 @@ Where:
 3.  $$h i d o u t$$ — the output of the hidden layer (the weighted sum before activation)
 4.  $$w_{2}$$ — the second weights (hidden layer → prediction)
 
-Before this analogy, we do the same for all weights and biases\*\*.\*\*
+Before this analogy, we do the same for all weights and biases**.**
 
 **…**
 
-After performing backpropagation, we calculate the new weights and biases using this formula where $$w / b$$ = weights or bias:
+After performing backpropagation, we calculate the new weights and biases using this formula where $$w \slash b$$ = weights or bias:
 
 $$
-w / b = w / b - \  l e a r n i n g \  r a t e * \frac{\partial L}{\partial w / b}
+w \slash b = w \slash b - \  l e a r n i n g \  r a t e * \frac{\partial L}{\partial w \slash b}
 $$
 
 **Model testing**
@@ -99,7 +98,7 @@ $$
 The testing dataset consists of 10,000 images and their corresponding labels. Testing uses only forward propagation. During training and testing, the average training / testing loss per epoch is calculated using the following formula:
 
 $$
-t r a i n / t e s t \  \  e p o c h \  l o s e \  = \  \frac{\sum_{i = 1}^{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t} {M S E}}{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t}
+t r a i n \slash t e s t \  \  e p o c h \  l o s e \  = \  \frac{\sum_{i = 1}^{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t} {M S E}}{\frac{t r a i n}{t e s t} \  i m a g e s \  c o u n t}
 $$
 
 These errors were stored in lists of training/testing errors, which were later used to create the train/test loss graph.
@@ -113,3 +112,5 @@ These errors were stored in lists of training/testing errors, which were later u
     ![](media/05c62195d67cc76755fb71fe2f4db496.png)
 
 It may be related to the small model size, computing the epoch loss using MSE, or the small number of training epochs.
+
+2.  To improve the model’s performance, one can use the softmax activation function in the output layer, but in this project, it is not used because implementing the derivative of this function is a rather complex task.
