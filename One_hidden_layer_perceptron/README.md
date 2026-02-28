@@ -46,7 +46,7 @@ The data is initialized as follows:
 
 The model is trained for 20 epochs with a learning rate of 0.1 (both values were chosen randomly and can be modified when tuning the model). The training dataset consists of 60,000 images and their corresponding labels.
 
-1.  **Forward propagation**
+**Forward propagation**
 
 Forward propagation is performed by multiplying the input signals by their corresponding weights, adding a bias to each hidden neuron, and applying the sigmoid activation function.
 
