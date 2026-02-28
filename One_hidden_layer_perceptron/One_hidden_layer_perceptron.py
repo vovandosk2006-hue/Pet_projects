@@ -65,6 +65,7 @@ test_loss = []
 for e in range(epochs):
     train_epoch_loss = 0
     test_epoch_loss = 0
+    accuracy = 0
     print(f"epoch № {e + 1}/{epochs}:")
 
     # model training
@@ -124,6 +125,8 @@ for e in range(epochs):
         MSE = 1/output_size * np.sum((output - lable_vector) ** 2)
         test_epoch_loss += MSE
 
+        accuracy += 1 if np.argmax(output) == label else 0
+
     train_epoch_loss = train_epoch_loss / len(images)
     train_loss.append(train_epoch_loss)
     print(f"train_epoch_loss = {train_epoch_loss}")
@@ -131,6 +134,10 @@ for e in range(epochs):
     test_epoch_loss = test_epoch_loss / len(images2)
     test_loss.append(test_epoch_loss)
     print(f"test_epoch_loss = {test_epoch_loss}")
+
+    accuracy = accuracy / len(images2)
+    print(f"accuracy = {accuracy * 100} %")
+
 
 # plot train-test loss graph
 plt.figure(figsize=(8,5))
